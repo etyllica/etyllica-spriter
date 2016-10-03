@@ -2,6 +2,13 @@
 *.class
 /bin
 
+# Closed assets folder #
+/assets/animations/closed
+/src/examples/sandbox/*
+
+# Spriter Automatic Files #
+*.autosave.scml
+
 # SDK Projects
 /sdk
 
@@ -13,6 +20,7 @@
 *.iml
 */.idea
 */.settings
+.idea/*
 
 # Automatic Generated Files #
 *.applet
