@@ -1,12 +1,10 @@
 package br.com.etyllica.spriter;
 
 import br.com.etyllica.layer.ImageLayer;
+
 import com.brashmonkey.spriter.Data;
-import com.brashmonkey.spriter.File;
 import com.brashmonkey.spriter.FileReference;
 import com.brashmonkey.spriter.Loader;
-
-import java.io.FileNotFoundException;
 
 public class EtyllicaLoader extends Loader<ImageLayer> {
 

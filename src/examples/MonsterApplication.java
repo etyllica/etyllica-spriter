@@ -4,18 +4,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import com.brashmonkey.spriter.Animation;
-import com.brashmonkey.spriter.Data;
-import com.brashmonkey.spriter.Player;
-import com.brashmonkey.spriter.SCMLReader;
-import com.brashmonkey.spriter.Timeline.Key.Bone;
-
 import br.com.etyllica.core.context.Application;
 import br.com.etyllica.core.event.KeyEvent;
 import br.com.etyllica.core.graphics.Graphics;
 import br.com.etyllica.spriter.EtyllicaDrawer;
 import br.com.etyllica.spriter.EtyllicaLoader;
 import br.com.etyllica.util.PathHelper;
+
+import com.brashmonkey.spriter.Data;
+import com.brashmonkey.spriter.Player;
+import com.brashmonkey.spriter.SCMLReader;
 
 public class MonsterApplication extends Application {
 
@@ -67,7 +65,7 @@ public class MonsterApplication extends Application {
 			loader = new EtyllicaLoader(data);
 			loader.load(new File(path));
 
-			drawer = new EtyllicaDrawer(w, h, loader);
+			drawer = new EtyllicaDrawer(loader);
 
 			player = new Player(data.getEntity(0));
 			player.translatePivot(500, 200);

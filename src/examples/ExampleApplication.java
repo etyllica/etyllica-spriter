@@ -14,7 +14,6 @@ import br.com.etyllica.spriter.EtyllicaLoader;
 import br.com.etyllica.util.PathHelper;
 
 import com.brashmonkey.spriter.Data;
-import com.brashmonkey.spriter.Entity;
 import com.brashmonkey.spriter.Player;
 import com.brashmonkey.spriter.SCMLReader;
 
@@ -45,7 +44,7 @@ public class ExampleApplication extends Application {
 	        loader = new EtyllicaLoader(data);
 	        loader.load(new File(path));
 
-	        drawer = new EtyllicaDrawer(w, h, loader);
+	        drawer = new EtyllicaDrawer(loader);
 
             Player player = new Player(data.getEntity(0));
             player.translatePivot(500, 200);

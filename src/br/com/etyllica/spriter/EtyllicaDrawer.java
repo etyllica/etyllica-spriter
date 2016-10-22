@@ -20,10 +20,8 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
 	 *
 	 * @param loader the loader containing resources
 	 */
-	public EtyllicaDrawer(int width, int height, Loader<ImageLayer> loader) {
+	public EtyllicaDrawer(Loader<ImageLayer> loader) {
 		super(loader);
-		this.width = width;
-		this.height = height;
 	}
 
 	@Override
@@ -38,7 +36,7 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
 
 	@Override
 	public void rectangle(float x, float y, float width, float height) {
-		g.drawRect(x, height-y, width, height);
+		g.drawRect(x, this.height-y, width, height);
 	}
 
 	@Override
@@ -80,5 +78,7 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
 
 	public void setGraphics(Graphics g) {
 		this.g = g;
+		this.width = g.getWidth();
+		this.height = g.getHeight();
 	}
 }

@@ -3,6 +3,7 @@
 import br.com.etyllica.Etyllica;
 import br.com.etyllica.core.context.Application;
 import examples.ExampleApplication;
+import examples.MonsterApplication;
 
 public class SpriterExample extends Etyllica {
 
@@ -21,7 +22,7 @@ public class SpriterExample extends Etyllica {
 	@Override
 	public Application startApplication() {
 		initialSetup("../");
-		return new ExampleApplication(w, h);
+		return new MonsterApplication(w, h);
 	}
 	
 }
