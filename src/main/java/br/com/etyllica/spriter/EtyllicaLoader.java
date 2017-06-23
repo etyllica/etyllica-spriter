@@ -1,10 +1,16 @@
 package br.com.etyllica.spriter;
 
 import br.com.etyllica.layer.ImageLayer;
-
+import br.com.etyllica.layer.StaticLayer;
+import br.com.etyllica.loader.image.ImageLoader;
+import br.com.etyllica.util.PathHelper;
+import br.com.etyllica.util.io.IOHelper;
 import com.brashmonkey.spriter.Data;
 import com.brashmonkey.spriter.FileReference;
 import com.brashmonkey.spriter.Loader;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class EtyllicaLoader extends Loader<ImageLayer> {
 
@@ -30,6 +36,18 @@ public class EtyllicaLoader extends Loader<ImageLayer> {
 
         String path = pathPrefix + data.getFile(ref).name;
 
-        return new ImageLayer(path, true);
+        try {
+            InputStream stream = PathHelper.loadAsset(path);
+            StaticLayer layer = ImageLoader.getInstance().loadImage(stream, path);
+            ImageLayer imageLayer = new ImageLayer();
+            imageLayer.cloneLayer(layer);
+
+            return imageLayer;
+        } catch (IOException e) {
+            System.err.println("Asset not found: " + path);
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

@@ -1,11 +1,10 @@
 package br.com.etyllica.spriter;
 
-import java.awt.Color;
-
 import com.brashmonkey.spriter.Drawer;
 import com.brashmonkey.spriter.Loader;
 import com.brashmonkey.spriter.Timeline;
 
+import br.com.etyllica.commons.graphics.Color;
 import br.com.etyllica.core.graphics.Graphics;
 import br.com.etyllica.layer.ImageLayer;
 
@@ -26,22 +25,22 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
 
 	@Override
 	public void setColor(float r, float g, float b, float a) {
-		this.g.setColor(new Color(r, g, b, a));
+		this.g.setColor(new Color((int)(r*255), (int)(g*255), (int)(g*255), (int)(a*255)));
 	}
 
 	@Override
 	public void line(float x1, float y1, float x2, float y2) {
-		g.drawLine(x1, height-y1, x2, height-y2);
+		g.drawLine((int)x1, (int)(height-y1), (int)x2, (int)(height-y2));
 	}
 
 	@Override
 	public void rectangle(float x, float y, float width, float height) {
-		g.drawRect(x, this.height-y, width, height);
+		g.drawRect((int)x, (int)(this.height-y), (int)width, (int)height);
 	}
 
 	@Override
 	public void circle(float x, float y, float radius) {
-		g.drawCircle(x, height-y, radius);
+		g.drawCircle((int)x, (int)(height-y), (int)radius);
 	}
 
 	@Override
