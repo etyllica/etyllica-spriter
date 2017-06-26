@@ -49,6 +49,7 @@ public class EtyllicaLoader extends Loader<ImageLayer> {
 
                 ImageLayer imageLayer = new ImageLayer();
                 imageLayer.cloneLayer(layer);
+
                 return imageLayer;
             } else {
                 return new ImageLayer(path, true);

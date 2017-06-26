@@ -43,9 +43,14 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
         g.drawCircle((int) x, (int) (height - y), (int) radius);
     }
 
+    /**
+     * Adapted from: https://github.com/Trixt0r/gdx-spriter/blob/master/src/main/java/com/brashmonkey/spriter/gdx/Drawer.java
+     * @param object the object to draw.
+     */
     @Override
     public void draw(Timeline.Key.Object object) {
         ImageLayer layer = loader.get(object.ref);
+
         float newPivotX = (layer.utilWidth() * object.pivot.x);
         float newX = object.position.x - newPivotX;
         float newPivotY = (layer.utilHeight() * object.pivot.y) - layer.utilHeight();
@@ -57,11 +62,6 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
         layer.setOrigin(newPivotX, -newPivotY);
 
         float angle = -object.angle;
-
-        if ((object.scale.y >= 0 && object.scale.x < 0)
-                || (object.scale.y < 0 && object.scale.x >= 0)) {
-            angle = -angle;
-        }
 
         layer.setAngle(angle);
 
