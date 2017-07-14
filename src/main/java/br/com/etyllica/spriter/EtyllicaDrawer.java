@@ -51,9 +51,9 @@ public class EtyllicaDrawer extends Drawer<ImageLayer> {
     public void draw(Timeline.Key.Object object) {
         ImageLayer layer = loader.get(object.ref);
 
-        float newPivotX = (layer.utilWidth() * object.pivot.x);
+        float newPivotX = (layer.getW() * object.pivot.x);
         float newX = object.position.x - newPivotX;
-        float newPivotY = (layer.utilHeight() * object.pivot.y) - layer.utilHeight();
+        float newPivotY = (layer.getH() * object.pivot.y) - layer.getH();
         float newY = object.position.y - newPivotY;
 
         layer.setX((int) newX);
